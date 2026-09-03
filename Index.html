@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Miss Merinu 💌</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  color:#fff;
+  background:#08040d;
+}
+
+/* BACKGROUND */
+
+.bg{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,#ff3d8135,transparent 30%),
+    radial-gradient(circle at 85% 80%,#8b4dff35,transparent 30%),
+    radial-gradient(circle at 50% 50%,#ff4f8d12,transparent 45%),
+    #08040d;
+}
+
+.orb{
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.35;
+  animation:floatOrb 9s ease-in-out infinite alternate;
+}
+
+.orb.one{
+  background:#ff3978;
+  left:-100px;
+  top:10%;
+}
+
+.orb.two{
+  background:#7b45ff;
+  right:-100px;
+  bottom:5%;
+  animation-delay:-4s;
+}
+
+@keyframes floatOrb{
+  to{
+    transform:translate(60px,40px) scale(1.2);
+  }
+}
+
+/* STARS */
+
+.stars{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#ffb6d0 1px,transparent 1px);
+  background-size:70px 70px,115px 115px;
+  opacity:.22;
+  animation:starMove 20s linear infinite;
+}
+
+@keyframes starMove{
+  to{
+    background-position:70px 70px,115px 115px;
+  }
+}
+
+/* SCREENS */
+
+.screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:5;
+  transition:
+    opacity .75s ease,
+    transform .75s ease;
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(1.08) translateY(20px);
+}
+
+/* CARD */
+
+.card{
+  width:min(94vw,460px);
+  max-height:92vh;
+  overflow:auto;
+  padding:30px 24px;
+  text-align:center;
+
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:32px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.035)
+    );
+
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.65),
+    inset 0 1px rgba(255,255,255,.12);
+
+  animation:cardIn 1s ease;
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(.92);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* TOP LABEL */
+
+.label{
+  font-size:10px;
+  letter-spacing:5px;
+  opacity:.55;
+  margin-bottom:18px;
+}
+
+/* ICON */
+
+.icon{
+  width:82px;
+  height:82px;
+  margin:0 auto 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(circle,#ff7ba833,transparent 65%);
+
+  border:1px solid #ffffff18;
+
+  font-size:42px;
+
+  box-shadow:
+    0 0 45px #ff4d8b35;
+
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.08);
+    box-shadow:0 0 70px #ff4d8b55;
+  }
+}
+
+/* TEXT */
+
+h1{
+  font-size:29px;
+  line-height:1.25;
+  margin-bottom:13px;
+}
+
+.gradient{
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #ff8eb5,
+      #d59cff,
+      #fff
+    );
+  background-size:250%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+  to{
+    background-position:250%;
+  }
+}
+
+.sub{
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  line-height:1.7;
+  opacity:.62;
+  margin-bottom:22px;
+}
+
+/* INPUT */
+
+input{
+  width:100%;
+  padding:16px 18px;
+
+  border-radius:18px;
+  border:1px solid #ffffff18;
+
+  outline:none;
+
+  color:#fff;
+  background:#ffffff0b;
+
+  text-align:center;
+  font-size:15px;
+
+  transition:.3s;
+}
+
+input:focus{
+  border-color:#ff76a555;
+  box-shadow:0 0 25px #ff4d8b18;
+}
+
+input::placeholder{
+  color:#ffffff45;
+}
+
+/* BUTTON */
+
+button{
+  border:0;
+  cursor:pointer;
+
+  color:white;
+  font-weight:600;
+
+  padding:14px 24px;
+  margin-top:14px;
+
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff477e,
+      #9b52ff
+    );
+
+  box-shadow:
+    0 12px 30px #ff477e30;
+
+  transition:.25s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 16px 40px #ff477e45;
+}
+
+button:active{
+  transform:scale(.95);
+}
+
+/* PROGRESS */
+
+.progress{
+  height:4px;
+  width:100%;
+  margin-bottom:25px;
+  border-radius:10px;
+  background:#ffffff0d;
+  overflow:hidden;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  border-radius:10px;
+  background:linear-gradient(90deg,#ff477e,#c45cff);
+  transition:.7s;
+}
+
+/* PUZZLE */
+
+.puzzle{
+  width:min(320px,88vw);
+  margin:25px auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+}
+
+.tile{
+  aspect-ratio:1;
+  border-radius:13px;
+
+  border:1px solid #ffffff12;
+  background:#ffffff08;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:19px;
+
+  cursor:pointer;
+  transition:.25s;
+}
+
+.tile:hover{
+  background:#ff4d8b18;
+  transform:scale(1.04);
+}
+
+.tile.selected{
+  background:#ff477e40;
+  border-color:#ff7da555;
+  box-shadow:0 0 20px #ff477e35;
+}
+
+.tile.bad{
+  animation:shake .35s;
+}
+
+@keyframes shake{
+  20%{transform:translateX(-7px)}
+  40%{transform:translateX(7px)}
+  60%{transform:translateX(-5px)}
+  80%{transform:translateX(5px)}
+}
+
+/* CHOICES */
+
+.choices{
+  display:grid;
+  gap:11px;
+}
+
+.choice{
+  width:100%;
+  margin:0;
+  background:#ffffff09;
+  border:1px solid #ffffff15;
+  box-shadow:none;
+  text-align:left;
+}
+
+.choice:hover{
+  background:#ff477e18;
+}
+
+/* SECRET */
+
+.lock{
+  font-size:65px;
+  margin-bottom:10px;
+  animation:lockPulse 1.8s infinite;
+}
+
+@keyframes lockPulse{
+  50%{
+    transform:rotate(-5deg) scale(1.08);
+  }
+}
+
+/* FINAL */
+
+.finalName{
+  font-size:43px;
+  line-height:1.1;
+  margin:8px 0 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #fff,
+      #ff8fb5,
+      #d7a1ff,
+      #fff
+    );
+
+  background-size:300%;
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  animation:shine 5s linear infinite;
+}
+
+.finalMessage{
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  line-height:1.9;
+  color:#ffffffcc;
+}
+
+.question{
+  margin-top:25px;
+  padding:18px;
+
+  border-radius:20px;
+
+  background:#ff477e0b;
+  border:1px solid #ff7da522;
+
+  color:#ffb4cb;
+  font-size:18px;
+  line-height:1.6;
+}
+
+/* FLOATING HEARTS */
+
+.float{
+  position:fixed;
+  bottom:-40px;
+  z-index:20;
+  pointer-events:none;
+
+  animation:rise 6s linear forwards;
+}
+
+@keyframes rise{
+  0%{
+    opacity:0;
+    transform:translateY(0) rotate(0);
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0;
+    transform:
+      translateY(-115vh)
+      translateX(var(--drift))
+      rotate(360deg);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:400px){
+
+  .card{
+    padding:25px 18px;
+    border-radius:27px;
+  }
+
+  h1{
+    font-size:25px;
+  }
+
+  .finalName{
+    font-size:36px;
+  }
+
+  .icon{
+    width:70px;
+    height:70px;
+    font-size:35px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+  <div class="stars"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+</div>
+
+
+<!-- SCREEN 1 -->
+
+<section class="screen" id="s1">
+
+<div class="card">
+
+<div class="label">A LITTLE SECRET</div>
+
+<div class="icon">💌</div>
+
+<h1>
+What should I call you?
+</h1>
+
+<p class="sub">
+Maybe the name that sounds sweetest...
+<br>
+or the one that makes this page feel special. ✨
+</p>
+
+<input
+  id="nameInput"
+  maxlength="30"
+  placeholder="Type your name..."
+>
+
+<button onclick="begin()">
+Continue&nbsp; →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+
+<section class="screen hidden" id="s2">
+
+<div class="card">
+
+<div class="progress">
+<span style="width:25%"></span>
+</div>
+
+<div class="icon">💗</div>
+
+<div class="label">LEVEL 01</div>
+
+<h1>
+Find the <span class="gradient">Path of Love</span>
+</h1>
+
+<p class="sub">
+Start from 💗 and find your way to 💌.
+<br>
+Choose the tiles carefully.
+</p>
+
+<div class="puzzle" id="puzzle"></div>
+
+<p class="sub" id="status">
+There is a hidden path... ✨
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+
+<section class="screen hidden" id="s3">
+
+<div class="card">
+
+<div class="progress">
+<span style="width:50%"></span>
+</div>
+
+<div class="icon">✨</div>
+
+<div class="label">LEVEL 02</div>
+
+<h1>
+A Little Question
+</h1>
+
+<p class="sub">
+If you could keep one kind of moment forever,
+which would you choose?
+</p>
+
+<div class="choices">
+
+<button class="choice" onclick="answer()">
+🌙 &nbsp; A peaceful evening
+</button>
+
+<button class="choice" onclick="answer()">
+✨ &nbsp; A beautiful memory
+</button>
+
+<button class="choice" onclick="answer()">
+❤️ &nbsp; A moment with someone special
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+
+<section class="screen hidden" id="s4">
+
+<div class="card">
+
+<div class="progress">
+<span style="width:75%"></span>
+</div>
+
+<div class="lock">🔐</div>
+
+<div class="label">FINAL LEVEL</div>
+
+<h1>
+Something is waiting...
+</h1>
+
+<p class="sub">
+You solved the little puzzles.
+<br><br>
+Now there is only one secret left.
+</p>
+
+<button onclick="reveal()">
+Unlock the Secret 💌
+</button>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="screen hidden" id="s5">
+
+<div class="card">
+
+<div class="icon">💖</div>
+
+<div class="label">
+A MESSAGE FOR
+</div>
+
+<div class="finalName">
+Miss Merinu
+</div>
+
+<div class="finalMessage">
+
+Some people enter our lives quietly,
+and somehow become unforgettable.
+
+<br><br>
+
+Some moments don't need a reason
+to become special.
+
+<br><br>
+
+And somehow,
+you became one of those special people
+I wanted to make this little world for. ✨
+
+<div class="question">
+Miss Merinu...<br><br>
+<strong>
+Would you like to be<br>
+my special person? ❤️
+</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* SCREEN CONTROL */
+
+function show(id){
+
+document
+.querySelectorAll(".screen")
+.forEach(s => s.classList.add("hidden"));
+
+document
+.getElementById(id)
+.classList.remove("hidden");
+
+}
+
+
+/* START */
+
+function begin(){
+
+const input =
+document.getElementById("nameInput");
+
+if(input.value.trim()===""){
+
+input.style.borderColor="#ff477e";
+
+input.placeholder="Write something first... ❤️";
+
+setTimeout(()=>{
+input.style.borderColor="";
+},800);
+
+return;
+}
+
+show("s2");
+
+createPuzzle();
+
+}
+
+
+/* PUZZLE */
+
+const path=[
+0,1,2,7,12,13,14,19,24
+];
+
+let position=0;
+
+function createPuzzle(){
+
+const puzzle =
+document.getElementById("puzzle");
+
+puzzle.innerHTML="";
+position=0;
+
+for(let i=0;i<25;i++){
+
+const tile =
+document.createElement("div");
+
+tile.className="tile";
+
+if(i===0){
+tile.innerHTML="💗";
+}
+
+else if(i===24){
+tile.innerHTML="💌";
+}
+
+else{
+tile.innerHTML="·";
+}
+
+tile.onclick=()=>{
+chooseTile(i,tile);
+};
+
+puzzle.appendChild(tile);
+
+}
+
+}
+
+
+function chooseTile(index,tile){
+
+if(index===path[position]){
+
+tile.classList.add("selected");
+
+if(index!==24){
+tile.innerHTML="❤️";
+}
+
+position++;
+
+if(position===path.length){
+
+document.getElementById("status")
+.innerHTML="Path found! You unlocked the next level. 💕";
+
+heartRain();
+
+setTimeout(()=>{
+show("s3");
+},1000);
+
+}
+
+}else{
+
+tile.classList.add("bad");
+
+document.getElementById("status")
+.innerHTML="Not this one... follow your heart. ✨";
+
+setTimeout(()=>{
+tile.classList.remove("bad");
+},400);
+
+}
+
+}
+
+
+/* QUESTION */
+
+function answer(){
+
+heartRain();
+
+setTimeout(()=>{
+show("s4");
+},700);
+
+}
+
+
+/* FINAL */
+
+function reveal(){
+
+show("s5");
+
+heartRain();
+
+setTimeout(()=>{
+heartRain();
+},1000);
+
+setTimeout(()=>{
+heartRain();
+},2200);
+
+}
+
+
+/* HEART EFFECT */
+
+function heartRain(){
+
+const symbols=[
+"❤️",
+"💗",
+"💕",
+"💖",
+"✨",
+"♡"
+];
+
+for(let i=0;i<28;i++){
+
+setTimeout(()=>{
+
+const heart =
+document.createElement("div");
+
+heart.className="float";
+
+heart.innerHTML=
+symbols[
+Math.floor(
+Math.random()*symbols.length
+)
+];
+
+heart.style.left =
+Math.random()*100+"vw";
+
+heart.style.fontSize =
+(14+Math.random()*25)+"px";
+
+heart.style.setProperty(
+"--drift",
+(Math.random()*160-80)+"px"
+);
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},i*80);
+
+}
+
+}
+
+</script>
+
+</body>
+  </html>
